@@ -19,7 +19,7 @@ export default {
 				primary: colors.sky
 			},
 			borderRadius: {
-				global: '0.8rem'
+				global: '0.5rem'
 			}
 		}
 	},
