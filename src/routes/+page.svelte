@@ -41,14 +41,13 @@
 		</nav>
 
 		<main>
-			<div class="flex flex-col-reverse justify-between py-20 lg:flex-row lg:py-28">
+			<div class="flex flex-col-reverse justify-center py-20 lg:flex-row lg:py-28">
 				<div class="space-y-8 lg:basis-1/2">
-					<h1 class="text-5xl font-semibold text-white">AI-Powered <br /> Dummy API Generator</h1>
-					<p class="text-lg">
+					<h1 class="text-center text-5xl font-semibold text-white">AI-Powered <br /> Dummy API Generator</h1>
+					<p class="text-center text-lg">
 						Say goodbye to time-consuming manual API creation. Our AI engine generates dummy APIs in
 						seconds, freeing up your team for more important tasks.
 					</p>
-					<div />
 				</div>
 			</div>
 
