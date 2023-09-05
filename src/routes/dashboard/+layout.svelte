@@ -15,7 +15,7 @@
 <div class="h-screen bg-[#0f0f0f] text-gray-400">
 	<div class="flex h-full">
 		<!-- sidebar -->
-		<div class="hidden md:block w-[200px] p-4 border-r border-r-gray-500/20">
+		<div class="hidden md:block w-[300px] p-4 border-r border-r-gray-500/20">
 			<p class="text-xl font-semibold mb-4 text-primary-500">APIGen</p>
 			<div class="flex flex-col space-y-3">
 				{#each menus as m}
