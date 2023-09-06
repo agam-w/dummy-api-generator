@@ -9,66 +9,75 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      Project: {
+      projects: {
         Row: {
-          id: number
-          name: string
+          created_at: string | null
+          id: string
+          name: string | null
+          updated_at: string | null
         }
         Insert: {
-          id?: number
-          name: string
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          updated_at?: string | null
         }
         Update: {
-          id?: number
-          name?: string
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          updated_at?: string | null
         }
         Relationships: []
       }
-      ProjectUser: {
+      users: {
         Row: {
-          id: number
-          projectId: number
-          userId: string
+          created_at: string | null
+          email: string | null
+          id: string
+          updated_at: string | null
         }
         Insert: {
-          id?: number
-          projectId: number
-          userId: string
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          updated_at?: string | null
         }
         Update: {
-          id?: number
-          projectId?: number
-          userId?: string
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      users_projects: {
+        Row: {
+          project_id: string
+          user_id: string
+        }
+        Insert: {
+          project_id: string
+          user_id: string
+        }
+        Update: {
+          project_id?: string
+          user_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "ProjectUser_projectId_fkey"
-            columns: ["projectId"]
-            referencedRelation: "Project"
+            foreignKeyName: "users_projects_project_id_projects_id_fk"
+            columns: ["project_id"]
+            referencedRelation: "projects"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "ProjectUser_userId_fkey"
-            columns: ["userId"]
-            referencedRelation: "User"
+            foreignKeyName: "users_projects_user_id_users_id_fk"
+            columns: ["user_id"]
+            referencedRelation: "users"
             referencedColumns: ["id"]
           }
         ]
-      }
-      User: {
-        Row: {
-          email: string
-          id: string
-        }
-        Insert: {
-          email: string
-          id: string
-        }
-        Update: {
-          email?: string
-          id?: string
-        }
-        Relationships: []
       }
     }
     Views: {

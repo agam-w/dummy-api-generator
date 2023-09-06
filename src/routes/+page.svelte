@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$lib/components/Button.svelte';
+	import ButtonOutline from '$lib/components/ButtonOutline.svelte';
 	import MobileDrawer from '$lib/components/MobileDrawer.svelte';
 
 	let navMenu = [
@@ -35,7 +35,7 @@
 
 			<div class="flex items-center space-x-4">
 				<div class="hidden lg:block">
-					<Button href="/dashboard" size="sm">Sign In</Button>
+					<ButtonOutline href="/dashboard" size="sm">Sign In</ButtonOutline>
 				</div>
 			</div>
 		</nav>

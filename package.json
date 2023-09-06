@@ -11,7 +11,9 @@
 		"test": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"db:gentypes": "npx supabase gen types typescript --project-id fuweualqwuucnvlvhzvq --schema public > src/lib/server/supabase.ts"
+		"gen:types": "npx supabase gen types typescript --project-id eszxxrdvhagtzblppytx --schema public > src/lib/server/supabase.ts",
+    "db:push": "npx drizzle-kit push:pg",
+		"db:generate": "drizzle-kit generate:pg"
 	},
 	"devDependencies": {
 		"@iconify/svelte": "^3.1.4",
@@ -21,6 +23,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.15",
+		"drizzle-kit": "^0.19.13",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.30.0",
@@ -38,10 +41,11 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@prisma/client": "^5.2.0",
 		"@supabase/auth-helpers-sveltekit": "^0.10.2",
 		"@supabase/auth-ui-svelte": "^0.2.3",
 		"@supabase/supabase-js": "^2.33.1",
-		"prisma": "^5.2.0"
+		"dotenv": "^16.3.1",
+		"drizzle-orm": "^0.28.5",
+		"postgres": "^3.3.5"
 	}
 }

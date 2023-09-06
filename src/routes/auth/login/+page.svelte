@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Auth } from '@supabase/auth-ui-svelte';
-  import { ThemeSupa } from '@supabase/auth-ui-shared';
+	import { ThemeSupa } from '@supabase/auth-ui-shared';
 
-  export let data;
+	export let data;
 
 	// import { enhance } from '$app/forms';
 	// import Icon from '@iconify/svelte';
@@ -14,6 +14,8 @@
 <div class="min-h-screen bg-[#0f0f0f] text-gray-500">
 	<div class="container py-20">
 		<div class="max-w-md mx-auto">
+			<h1 class="text-3xl font-bold mb-6 text-primary-500 text-center">APIGen</h1>
+
 			<h1 class="text-2xl font-bold mb-4 text-white">Login</h1>
 
 			<!-- <form -->
@@ -55,7 +57,18 @@
 				supabaseClient={data.supabase}
 				view="magic_link"
 				redirectTo={`${data.url}/auth/callback`}
-				appearance={{ theme: ThemeSupa, style: { input: 'color: #fff' } }}
+				appearance={{
+					theme: ThemeSupa,
+					variables: {
+						default: {
+							colors: {
+								brand: '#4f46e5',
+								brandAccent: '#6366f1',
+                messageText: '#22c55e',
+							}
+						}
+					}
+				}}
 			/>
 		</div>
 	</div>

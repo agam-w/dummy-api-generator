@@ -2,7 +2,7 @@
 	import MobileDrawer from '$lib/components/MobileDrawer.svelte';
 
 	let menus = [
-		{ label: 'Dashboard', path: '/dashboard' },
+		{ label: 'All projects', path: '/dashboard' },
 		{ label: 'Settings', path: '/dashboard/settings' },
 		{ label: 'Logout', path: '/auth/logout' }
 	];
