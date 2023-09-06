@@ -56,7 +56,9 @@
 				additionalData={data}
 				supabaseClient={data.supabase}
 				view="magic_link"
+				providers={['github']}
 				redirectTo={`${data.url}/auth/callback`}
+				theme="dark"
 				appearance={{
 					theme: ThemeSupa,
 					variables: {
@@ -64,7 +66,7 @@
 							colors: {
 								brand: '#4f46e5',
 								brandAccent: '#6366f1',
-                messageText: '#22c55e',
+								messageText: '#22c55e'
 							}
 						}
 					}
