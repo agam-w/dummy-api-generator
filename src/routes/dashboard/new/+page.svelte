@@ -7,8 +7,8 @@
 	let isSubmitting = false;
 </script>
 
-<div class="max-w-md">
-	<p class="mb-4 text-gray-300 text-lg font-semibold">Create a new project</p>
+<div class="max-w-md mx-auto py-20">
+	<p class="mb-4 dark:text-gray-200 text-xl font-medium">Create a new project</p>
 
 	<form
 		class="space-y-4"
@@ -26,12 +26,12 @@
 			<input
 				type="text"
 				name="name"
-				class="bg-gray-500/10 border border-gray-500/20 focus:border-gray-500/50 transition ease outline-none p-2 rounded-global"
+				class="dark:bg-gray-500/10 border border-gray-500/20 focus:border-gray-500/50 transition ease outline-none p-2 rounded-global"
         required
 			/>
 		</div>
 		<div>
-			<Button primary disabled={isSubmitting}>Create new project</Button>
+			<Button primary disabled={isSubmitting}>Create project</Button>
 		</div>
 	</form>
 
