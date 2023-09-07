@@ -6,7 +6,7 @@
 	export let disabled = false;
 	export let type: 'submit' | 'button' | 'reset' | null | undefined = undefined;
 
-	let className = 'inline-block cursor-pointer  transition ';
+	let className = 'inline-block cursor-pointer transition font-medium ';
 
 	if (primary) {
 		className += ' text-white bg-primary-500 hover:bg-primary-400 ';

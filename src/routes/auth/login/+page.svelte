@@ -1,8 +1,23 @@
 <script lang="ts">
 	import { Auth } from '@supabase/auth-ui-svelte';
 	import { ThemeSupa } from '@supabase/auth-ui-shared';
+	import { onMount } from 'svelte';
 
 	export let data;
+
+	let isDarkTheme = false;
+
+	onMount(() => {
+		// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+		if (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			isDarkTheme = true;
+		} else {
+			isDarkTheme = false;
+		}
+	});
 
 	// import { enhance } from '$app/forms';
 	// import Icon from '@iconify/svelte';
@@ -11,12 +26,12 @@
 	// let isSubmitting = false;
 </script>
 
-<div class="min-h-screen bg-[#0f0f0f] text-gray-500">
+<div class="min-h-screen dark:bg-[#0f0f0f] dark:text-gray-500">
 	<div class="container py-20">
 		<div class="max-w-md mx-auto">
-			<h1 class="text-3xl font-bold mb-6 text-primary-500 text-center">APIGen</h1>
+			<h1 class="text-3xl font-bold mb-8 text-primary-500 text-center">APIGen</h1>
 
-			<h1 class="text-2xl font-bold mb-4 text-white">Login</h1>
+			<!-- <h1 class="text-2xl font-bold mb-4 text-white">Login</h1> -->
 
 			<!-- <form -->
 			<!-- 	class="space-y-4" -->
@@ -58,16 +73,21 @@
 				view="magic_link"
 				providers={['github']}
 				redirectTo={`${data.url}/auth/callback`}
-				theme="dark"
+				theme={isDarkTheme ? "dark" : "default"}
 				appearance={{
 					theme: ThemeSupa,
 					variables: {
 						default: {
 							colors: {
-								brand: '#4f46e5',
-								brandAccent: '#6366f1',
+								brand: '#22c55e',
+								brandAccent: '#4ade80',
 								messageText: '#22c55e'
-							}
+							},
+              radii: {
+                inputBorderRadius: '0.5rem',
+                borderRadiusButton: '0.5rem',
+                buttonBorderRadius: '0.5rem'
+              }
 						}
 					}
 				}}

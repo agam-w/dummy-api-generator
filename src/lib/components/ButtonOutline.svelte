@@ -7,12 +7,12 @@
 	export let type: 'submit' | 'button' | 'reset' | null | undefined = undefined;
 
   let className =
-    'inline-block cursor-pointer  transition ';
+    'inline-block cursor-pointer transition font-medium ';
 
   if(primary){
-    className += " text-white border-2 border-primary-500 bg-gray-500/10 hover:bg-primary-500 "
+    className += " border-2 border-primary-500 hover:bg-primary-500 hover:text-white "
   }else{
-    className += " text-gray-400 hover:text-white border-2 border-gray-500/30 hover:bg-gray-500/10  "
+    className += " border-2 hover:bg-gray-500/20 border-black dark:border-gray-400 "
   }
 
   if(size=="sm") {
