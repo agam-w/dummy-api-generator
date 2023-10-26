@@ -6,16 +6,18 @@
 	export let data: PageData;
 </script>
 
-<h1 class="text-xl font-medium dark:text-gray-200 mb-4">Projects</h1>
+<div class="flex items-center justify-between">
+	<h1 class="text-xl font-medium dark:text-gray-200">Projects</h1>
 
-<Button primary href="/dashboard/new">
-	<div class="flex items-center space-x-2">
-		<Icon icon="mdi:add" />
-		<p>New project</p>
-	</div>
-</Button>
+	<Button primary href="/dashboard/new">
+		<div class="flex items-center space-x-2">
+			<Icon icon="akar-icons:plus" />
+			<p>New project</p>
+		</div>
+	</Button>
+</div>
 
-<div class="grid md:grid-cols-2 lg:grid-cols-4 my-8">
+<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 my-8">
 	{#each data.projects as project}
 		<a
 			href={`/dashboard/project/${project.id}`}

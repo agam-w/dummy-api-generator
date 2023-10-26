@@ -4,6 +4,7 @@
 	export let size: 'sm' | 'normal' = 'normal';
 	export let primary = false;
 	export let disabled = false;
+	export let flex = false;
 	export let type: 'submit' | 'button' | 'reset' | null | undefined = undefined;
 
 	let className = 'inline-block cursor-pointer transition font-medium ';
@@ -12,6 +13,10 @@
 		className += ' text-white bg-primary-500 hover:bg-primary-400 ';
 	} else {
 		className += ' text-gray-400 hover:text-white hover:bg-gray-500/10  ';
+	}
+
+	if (flex) {
+		className += ' flex items-center justify-center';
 	}
 
 	if (size == 'sm') {

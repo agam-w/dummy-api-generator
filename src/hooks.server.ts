@@ -1,8 +1,7 @@
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public';
-import { env } from '$env/dynamic/private';
 import { createSupabaseServerClient } from '@supabase/auth-helpers-sveltekit';
 import { createClient } from '@supabase/supabase-js';
-import type { Handle } from '@sveltejs/kit';
+import { type Handle, redirect, error } from '@sveltejs/kit';
 import type { Database } from '$lib/server/supabase';
 
 export const handle: Handle = async ({ event, resolve }) => {
@@ -12,8 +11,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 		event
 	});
 
-	event.locals.db = createClient<Database>(PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_KEY ?? '', {
+	event.locals.db = createClient<Database>(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
 		auth: {
+			// debug: true,
 			persistSession: false
 		}
 	});
@@ -29,6 +29,24 @@ export const handle: Handle = async ({ event, resolve }) => {
 		} = await event.locals.supabase.auth.getSession();
 		return session;
 	};
+
+	// protect requests to all routes that start with /dashboard
+	if (event.url.pathname.startsWith('/dashboard')) {
+		const session = await event.locals.getSession();
+		if (!session) {
+			// the user is not signed in
+			throw redirect(303, '/');
+		}
+	}
+
+	// protect POST requests to all routes that start with /dashboard
+	if (event.url.pathname.startsWith('/dashboard') && event.request.method === 'POST') {
+		const session = await event.locals.getSession();
+		if (!session) {
+			// the user is not signed in
+			throw error(303, '/');
+		}
+	}
 
 	return resolve(event, {
 		filterSerializedResponseHeaders(name) {

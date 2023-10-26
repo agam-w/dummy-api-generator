@@ -1,4 +1,5 @@
 <script lang="ts">
+	import LogoutButton from '$lib/components/LogoutButton.svelte';
 	import ThemeToggler from '$lib/components/ThemeToggler.svelte';
 </script>
 
@@ -18,6 +19,7 @@
 					</div>
 					<div class="flex items-center">
 						<ThemeToggler />
+						<LogoutButton />
 					</div>
 				</div>
 			</div>
