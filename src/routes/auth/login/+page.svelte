@@ -73,7 +73,7 @@
 				view="magic_link"
 				providers={['github']}
 				redirectTo={`${data.url}/auth/callback`}
-				theme={isDarkTheme ? "dark" : "default"}
+				theme={isDarkTheme ? 'dark' : 'default'}
 				appearance={{
 					theme: ThemeSupa,
 					variables: {
@@ -83,11 +83,11 @@
 								brandAccent: '#4ade80',
 								messageText: '#22c55e'
 							},
-              radii: {
-                inputBorderRadius: '0.5rem',
-                borderRadiusButton: '0.5rem',
-                buttonBorderRadius: '0.5rem'
-              }
+							radii: {
+								inputBorderRadius: '0.5rem',
+								borderRadiusButton: '0.5rem',
+								buttonBorderRadius: '0.5rem'
+							}
 						}
 					}
 				}}

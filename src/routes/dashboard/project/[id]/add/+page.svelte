@@ -3,26 +3,33 @@
 	import Button from '$lib/components/Button.svelte';
 	import type { ResourceSchema } from '$lib/types/resource';
 	import Icon from '@iconify/svelte';
-	import type { ActionData } from './$types';
+	import type { ActionData, PageData } from './$types';
+
 	export let form: ActionData;
+	export let data: PageData;
+
+	const { functions } = data;
 
 	let isSubmitting = false;
-
 	let schema: ResourceSchema = [
 		{
 			name: 'id',
-			type: 'id'
+			type: 'id',
+			default: '1'
 		},
 		{
 			name: 'name',
-			type: 'string'
+			type: 'string',
+			default: 'adam'
 		}
 	];
 
+	$: schemaJson = JSON.stringify(schema);
+
 	function delField(idx: number) {
-		const newSchema = [...schema]
-    newSchema.splice(idx, 1);
-    schema = newSchema
+		const newSchema = [...schema];
+		newSchema.splice(idx, 1);
+		schema = newSchema;
 	}
 
 	function addField() {
@@ -44,6 +51,7 @@
 			};
 		}}
 	>
+		<input type="hidden" name="project_id" value={data.project_id} />
 		<div class="flex flex-col space-y-2">
 			<label for="" class="font-medium">Name</label>
 			<p class="text-sm">
@@ -57,6 +65,7 @@
 				required
 			/>
 		</div>
+		<input type="hidden" name="schema" bind:value={schemaJson} />
 		<div class="flex flex-col space-y-2">
 			<label for="" class="font-medium">Schema</label>
 			<p class="text-sm">Define Resource schema, it will be used to generate mock data.</p>

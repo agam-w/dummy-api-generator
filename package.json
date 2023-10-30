@@ -12,7 +12,7 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"gen:types": "npx supabase gen types typescript --project-id eszxxrdvhagtzblppytx --schema public > src/lib/server/supabase.ts",
-    "db:push": "npx drizzle-kit push:pg",
+		"db:push": "npx drizzle-kit push:pg",
 		"db:generate": "drizzle-kit generate:pg"
 	},
 	"devDependencies": {
@@ -30,6 +30,7 @@
 		"postcss": "^8.4.29",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
+		"simple-svelte-autocomplete": "^2.5.2",
 		"supabase": "^1.93.0",
 		"svelte": "^4.0.5",
 		"svelte-check": "^3.4.3",
